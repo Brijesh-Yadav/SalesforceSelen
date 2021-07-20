@@ -1,6 +1,7 @@
 package com.salesforceselen.core;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 import org.openqa.selenium.WebDriver;
 
@@ -21,6 +22,16 @@ public class ElementObject implements Pattern{
 		ec.store_present_element(obj);
 		// TODO Auto-generated method stub
 		return new ActionEvent(driver);
+	}
+
+	public SelectEvent getObj(LinkedHashMap<String, String> obj) {
+		// TODO Auto-generated method stub
+		return new SelectEvent(driver);
+	}
+
+	public Verify verify() {
+		// TODO Auto-generated method stub
+		return new ExecuteVerification(driver);
 	}
 
 }

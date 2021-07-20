@@ -7,5 +7,9 @@ public class SalesforceLex extends DriverInit{
 	public SalesforceLex(WebDriver w_driver) {
 		super(w_driver);
 	}
+	
+	public void uploadfile(){
+		
+	}
 
 }

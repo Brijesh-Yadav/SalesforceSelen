@@ -14,4 +14,13 @@ public class ActionEvent {
 		
 	}
 	
+	public void select(String text){
+		
+	}
+
+	public void enter(String text){
+		
+	}
+
+	
 }
