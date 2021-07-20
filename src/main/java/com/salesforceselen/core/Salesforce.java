@@ -11,6 +11,7 @@ public interface Salesforce {
 	interface Pattern{
 		
 		ActionEvent getObj(ArrayList<String> obj);
+		ActionEvent getObj(ObjContainer obj);
 		SelectEvent getObj(LinkedHashMap<String,String> obj);
 		Verify verify();
 	}

@@ -1,6 +1,5 @@
 package com.salesforceselen.unittest;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,9 +19,7 @@ public class TestScript2 {
 		//
 		//initialize Salesforce driver
 		SalesforceDriver sdriver = new SalesforceLex(driver);
-		
-		sdriver.salesforce().pattern().getObj(Obj.button("Login")).click();
-		
+		sdriver.salesforce().pattern().getObj(Obj.btn("Login")).click();
 		
 	}
 

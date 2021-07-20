@@ -6,6 +6,12 @@ import java.util.LinkedHashMap;
 import com.salesforceselen.lexrepo.ButtonRepo;
 
 public class Obj {
+
+	public static ObjContainer btn(String object_name){
+		ArrayList<String> button_objs = new ArrayList<String>();
+		button_objs = ButtonRepo.button_repo(object_name, 1);
+		return new ObjContainer(button_objs,"button");
+	}
 	
 	public static ArrayList<String> button(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();

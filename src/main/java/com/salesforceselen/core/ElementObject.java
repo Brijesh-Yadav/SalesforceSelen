@@ -34,4 +34,15 @@ public class ElementObject implements Pattern{
 		return new ExecuteVerification(driver);
 	}
 
+	public ActionEvent getObj(ObjContainer obj) {
+		String objtp = obj.objectype;
+		ArrayList<String> objlist = obj.patternobjs;
+		// TODO Auto-generated method stub
+		System.out.println("print button type "+objtp);
+		for(int i=0; i<objlist.size(); i++){
+			System.out.println(objlist.get(i));
+		}
+		return new ActionEvent(driver);
+	}
+
 }
