@@ -1,5 +1,6 @@
 package com.salesforceselen.lexrepo;
 
+
 public class CommonRepoFun {
 
 	public static int getIndex(int index) {
@@ -11,5 +12,6 @@ public class CommonRepoFun {
 		}
 		return ind;
 	}
+	
 
 }

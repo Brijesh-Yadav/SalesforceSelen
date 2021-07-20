@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class SalesforceLex extends DriverInit{
 
 	public SalesforceLex(WebDriver w_driver) {
-		super(w_driver);
+		super(w_driver,"lightning");
 	}
 	
 	public void uploadfile(){

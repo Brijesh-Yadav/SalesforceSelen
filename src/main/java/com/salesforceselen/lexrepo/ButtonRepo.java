@@ -3,9 +3,12 @@ package com.salesforceselen.lexrepo;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
+import com.salesforceselen.core.SetGetConfig;
+
 public class ButtonRepo extends CommonRepoFun{
 	
 	public static ArrayList<String> button_repo(String object_name, int index){
+		System.out.println("version "+SetGetConfig.sfversion);
 		LinkedHashSet<String> obj_list = new LinkedHashSet<String>();
 		//added on 19 June 2021
 		obj_list.add("(//button[text()=\""+object_name+"\"])["+getIndex(index)+"]");

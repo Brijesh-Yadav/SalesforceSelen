@@ -5,9 +5,9 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.salesforce.exception.ObjectNotFound;
-import com.salesforceselen.core.SFSeleniumutils;
+import com.salesforceselen.selenium.Seleniumutils;
 
-public class ElementCheckProcess extends SFSeleniumutils{
+public class ElementCheckProcess extends Seleniumutils{
 	
 	private WebDriver driver;
 	

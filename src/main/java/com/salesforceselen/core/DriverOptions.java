@@ -6,8 +6,9 @@ public class DriverOptions implements Salesforce{
 	
 	private WebDriver driver;
 	
-	public DriverOptions(WebDriver driver){
+	public DriverOptions(WebDriver driver,String sfversion){
 		this.driver = driver;
+		SetGetConfig.sfversion = sfversion;
 	}
 
 	public Pattern pattern() {
