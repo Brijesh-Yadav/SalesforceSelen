@@ -5,24 +5,22 @@ import java.util.ArrayList;
 import org.openqa.selenium.WebDriver;
 
 import com.salesforceselen.core.Salesforce.Pattern;
+import com.salesforceselen.objectprocess.ElementCheckProcess;
 
 public class ElementObject implements Pattern{
 	
-	private DriverRef ref;
+	private WebDriver driver;
 	
-	public void setDriverRef(DriverRef ref){
-		this.ref = ref;
-		Obj obj = new Obj();
-		obj.set_DriverRef(this.ref);
-		if(ref.gettDriver()!=null){
-			System.out.println("obj driver object reference is set... under elementobject..");
-		}
+	protected ElementObject(WebDriver driver){
+		this.driver = driver;
 	}
 	
 	public ActionEvent getObj(ArrayList<String> obj) {
 		System.out.println("get object is called..");
+		ElementCheckProcess ec = new ElementCheckProcess(driver);
+		ec.store_present_element(obj);
 		// TODO Auto-generated method stub
-		return new ActionEvent();
+		return new ActionEvent(driver);
 	}
 
 }

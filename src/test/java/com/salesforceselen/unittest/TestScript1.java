@@ -19,6 +19,7 @@ public class TestScript1 {
 		//initialize Salesforce driver
 		SalesforceDriver sdriver = new SalesforceLex(driver);
 		sdriver.salesforce().pattern().getObj(Obj.Button("Login")).click();
+		
 	}
 
 }

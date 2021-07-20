@@ -12,11 +12,7 @@ public class DriverOptions implements Salesforce{
 
 	public Pattern pattern() {
 		// TODO Auto-generated method stub
-		SetDriverRef rf = new SetDriverRef();
-		DriverRef ref = rf.setRef(driver);//set driver reference
-		ElementObject eo = new ElementObject();
-		eo.setDriverRef(ref);
-		return new ElementObject();
+		return new ElementObject(driver);
 	}
 
 	public Traverse traverse() {

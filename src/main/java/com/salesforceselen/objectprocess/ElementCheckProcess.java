@@ -2,17 +2,18 @@ package com.salesforceselen.objectprocess;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.salesforce.exception.ObjectNotFound;
-import com.salesforceselen.core.DriverRef;
 import com.salesforceselen.core.SFSeleniumutils;
 
 public class ElementCheckProcess extends SFSeleniumutils{
 	
-	private DriverRef ref ;
+	private WebDriver driver;
 	
-	public void set_DriverRef(DriverRef ref){
-		this.ref = ref;
+	public ElementCheckProcess(WebDriver driver){
+		super(driver);
+		this.driver = driver;
 	}
 	
 	/**
