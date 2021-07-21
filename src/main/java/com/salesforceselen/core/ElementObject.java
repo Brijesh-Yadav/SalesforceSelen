@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 
 import org.openqa.selenium.WebDriver;
 
+import com.salesforce.sftable.CellContainer;
 import com.salesforceselen.core.Salesforce.Pattern;
 import com.salesforceselen.lexrepo.ButtonRepo;
 import com.salesforceselen.objectprocess.ElementCheckProcess;
@@ -43,6 +44,31 @@ public class ElementObject implements Pattern{
 		for(int i=0; i<objlist.size(); i++){
 			System.out.println(objlist.get(i));
 		}
+		return new ActionEvent(driver);
+	}
+
+	public ActionEvent getObj(Object object) {
+		// TODO Auto-generated method stub
+		return new ActionEvent(driver);
+	}
+
+	public ActionEvent getObj(CellContainer tc) {
+		ArrayList<String> tablelistobj = new ArrayList<String>();
+		String abs = tc.col_header;
+		tablelistobj = tc.tablelist;
+		int col = tc.col;
+		int row = tc.row;
+		String object = tc.object;
+		String [] arr = tc.m_value;
+		
+//		System.out.println(abs);
+//		System.out.println(col);
+//		System.out.println(row);
+		System.out.println(object);
+//		System.out.println(arr);
+		System.out.println(tablelistobj);
+		
+		// TODO Auto-generated method stub
 		return new ActionEvent(driver);
 	}
 

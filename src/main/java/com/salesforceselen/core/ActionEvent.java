@@ -21,6 +21,16 @@ public class ActionEvent {
 	public void enter(String text){
 		
 	}
+	
+	public void getElement(){
+		
+	}
+	
+	public WaitClick wait_to_clickable(int timeInSec){
+		
+		return new WaitClick(driver);
+	}
+
 
 	
 }

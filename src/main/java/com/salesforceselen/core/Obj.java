@@ -3,6 +3,8 @@ package com.salesforceselen.core;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
+import com.salesforce.sftable.CellContainer;
+import com.salesforce.sftable.TableAction;
 import com.salesforceselen.lexrepo.ButtonRepo;
 
 public class Obj {
@@ -65,6 +67,13 @@ public class Obj {
 		button_objs = ButtonRepo.button_repo(object_name, 1);
 		return button_objs;
 	}
-
+	
+	public static TableAction table(String object_name){
+		ArrayList<String> button_objs = new ArrayList<String>();
+		button_objs = ButtonRepo.button_repo(object_name, 1);
+		return new TableAction(button_objs);
+	}
+	
+	
 
 }
