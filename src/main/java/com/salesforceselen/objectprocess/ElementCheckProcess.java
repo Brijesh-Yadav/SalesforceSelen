@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import com.salesforce.exception.ObjectNotFound;
+import com.salesforce.exception.ObjectNotFoundException;
 import com.salesforceselen.selenium.Seleniumutils;
 
 public class ElementCheckProcess extends Seleniumutils{
@@ -36,7 +36,7 @@ public class ElementCheckProcess extends Seleniumutils{
 		}
 		if(result!=1){
 			printlist(oblist);
-			throw new ObjectNotFound("none of the element is found from above pattern..");
+			throw new ObjectNotFoundException("none of the element is found from above pattern..");
 		}
 		return obj_list;
 	}

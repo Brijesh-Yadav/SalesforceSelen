@@ -3,6 +3,9 @@ package com.salesforceselen.unittest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.salesforceselen.core.Obj;
 import com.salesforceselen.core.SalesforceDriver;
 import com.salesforceselen.core.SalesforceLex;
@@ -20,6 +23,7 @@ public class TestScript2 {
 		//initialize Salesforce driver
 		SalesforceDriver sdriver = new SalesforceLex(driver);
 //		sdriver.salesforce().pattern().getObj(Obj.btn("Login")).click();
+
 		String [] arr = {"col a","col b"};
 		sdriver.salesforce().pattern().getObj(Obj.table("abcdetf").getCell(arr,"Object")).click();	
 
