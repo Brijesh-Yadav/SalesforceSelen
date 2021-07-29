@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 public interface SeleniumKeyboardEvent {
 	
-	public void press_keys_selenium(WebElement element, Keys key);
+	public void press_keys_selenium(WebElement element, Keys keys);
 	
 	public void press_keyboard_key(int key);
 
