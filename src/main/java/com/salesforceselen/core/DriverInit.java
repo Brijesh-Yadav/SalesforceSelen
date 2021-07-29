@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import com.salesforceselen.datetime.DatetimeUtils;
 import com.salesforceselen.excel.Excel;
 import com.salesforceselen.selenium.Selenium;
-import com.salesforceselen.selenium.Seleniumutils;
+import com.salesforceselen.selenium.SeleniumActions;
 
 public class DriverInit implements  SalesforceDriver{
 	
@@ -22,7 +22,7 @@ public class DriverInit implements  SalesforceDriver{
 	}
 
 	public Selenium selenium() {
-		return new Seleniumutils(w_driver);
+		return new SeleniumActions(w_driver);
 	}
 
 	public DatetimeUtils date() {

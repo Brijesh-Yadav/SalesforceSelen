@@ -7,9 +7,9 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import com.salesforce.exception.ObjectNotFoundException;
-import com.salesforceselen.selenium.Seleniumutils;
+import com.salesforceselen.selenium.SeleniumActions;
 
-public class ElementCheckProcess extends Seleniumutils{
+public class ElementCheckProcess extends SeleniumActions{
 	
 	private WebDriver driver;
 	

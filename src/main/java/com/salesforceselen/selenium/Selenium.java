@@ -71,5 +71,7 @@ public interface Selenium {
 	public String getOuterHtml(WebElement element);
 
 	public String getInnerText(WebElement element);
+	
+	public void mouse_hover(WebElement element);
 
 }

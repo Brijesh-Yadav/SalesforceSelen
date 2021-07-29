@@ -7,11 +7,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class Seleniumutils implements Selenium{
+public class SeleniumActions implements Selenium{
 	
 	private WebDriver driver;
 	
-	public Seleniumutils(WebDriver driver){
+	public SeleniumActions(WebDriver driver){
 		this.driver = driver;
 	}
 	
@@ -179,6 +179,11 @@ public class Seleniumutils implements Selenium{
 	public String getInnerText(WebElement element) {
 		String attribute = element.getAttribute("innerText");
 		return attribute;
+	}
+
+	public void mouse_hover(WebElement element) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
