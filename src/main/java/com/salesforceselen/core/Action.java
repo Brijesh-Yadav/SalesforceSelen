@@ -4,7 +4,7 @@ public interface Action {
 	
 	public void click();
 	
-	public void select(String text);
+	public ActionEvent select(String text);
 
 	public void enter(String text);
 	
@@ -13,5 +13,7 @@ public interface Action {
 	public WaitClick wait_to_clickable(int timeInSec);
 
 	public WaitClick wait_to_present(int timeInSec);
+	
+	public boolean isSelected();
 
 }

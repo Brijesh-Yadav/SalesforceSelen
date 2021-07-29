@@ -10,24 +10,27 @@ public class ObjContainer {
 	public String objectype;
 	public int objindex;
 	public int pattern_index;
+	public String objectName;
 	
-	public ObjContainer(ArrayList<String> patternobjs, String objectype){
+	public ObjContainer(ArrayList<String> patternobjs, String objectype, String objectName){
 		this.patternobjs = patternobjs;
 		this.objectype = objectype;
+		this.objectName = objectName;
 	}
 
-	public ObjContainer(LinkedHashMap<String,String> d_patternobjs, String objectype){
+	public ObjContainer(LinkedHashMap<String,String> d_patternobjs, String objectype,String objectName,int objindex){
 		this.d_patternobjs = d_patternobjs;
 		this.objectype = objectype;
 	}
 	
-	public ObjContainer(ArrayList<String> patternobjs, String objectype, int objindex){
+	public ObjContainer(ArrayList<String> patternobjs, String objectype, String objectName, int objindex){
 		this.patternobjs = patternobjs;
 		this.objectype = objectype;
 		this.objindex = objindex;
+		this.objectName=objectName;
 	}
 
-	public ObjContainer(ArrayList<String> patternobjs, String objectype, int objindex,int pattern_index ){
+	public ObjContainer(ArrayList<String> patternobjs, String objectype,String objectName, int objindex,int pattern_index ){
 		this.patternobjs = patternobjs;
 		this.objectype = objectype;
 		this.objindex = objindex;

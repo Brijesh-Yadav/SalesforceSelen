@@ -1,36 +1,30 @@
 package com.salesforceselen.core;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import org.openqa.selenium.WebDriver;
 import com.salesforce.sftable.CellContainer;
 import com.salesforceselen.core.Salesforce.Pattern;
 import com.salesforceselen.objectprocess.ElementCheckProcess;
 
-public class ElementObject implements Pattern{
+public class ObjectDriver implements Pattern{
 	
 	private WebDriver driver;
 	
-	protected ElementObject(WebDriver driver){
+	protected ObjectDriver(WebDriver driver){
 		this.driver = driver;
-	}
-	
-	public ActionEvent getObj(ArrayList<String> obj) {
-		System.out.println("get object is called..");
-		ElementCheckProcess ec = new ElementCheckProcess(driver);
-		ec.store_present_element(obj);
-		// TODO Auto-generated method stub
-		return new ActionEvent(driver);
 	}
 
 	public ActionEvent getObj(ObjContainer obj) {
 		String objtp = obj.objectype;
+		String objname = obj.objectName;
+		int obj_ind = obj.objindex;
 		ArrayList<String> objlist = obj.patternobjs;
-		// TODO Auto-generated method stub
-		System.out.println("print button type "+objtp);
-		for(int i=0; i<objlist.size(); i++){
-			System.out.println(objlist.get(i));
-		}
-		return new ActionEvent(driver);
+		LinkedHashMap<String,String> dropdown_mapo = obj.d_patternobjs;
+		ArrayList<String> present_ele = new ArrayList<String> ();
+		ElementCheckProcess ec = new ElementCheckProcess(driver);
+		present_ele = ec.store_present_element(objlist);
+		return new ActionEvent(driver,dropdown_mapo,present_ele,objtp,objname,obj_ind);
 	}
 
 	public ActionEvent getObj(CellContainer tc) {
@@ -50,7 +44,12 @@ public class ElementObject implements Pattern{
 		System.out.println(tablelistobj);
 		
 		// TODO Auto-generated method stub
-		return new ActionEvent(driver);
+		return new ActionEvent(driver,tablelistobj);
+	}
+
+	public ObjectDriver getObjectDriver() {
+		// TODO Auto-generated method stub
+		return new ObjectDriver(driver);
 	}
 	
 }

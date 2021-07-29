@@ -10,6 +10,7 @@ public interface Salesforce {
 	interface Pattern{
 		ActionEvent getObj(CellContainer tc);
 		ActionEvent getObj(ObjContainer obj);
+		ObjectDriver getObjectDriver();
 	}
 	
 	interface Traverse{

@@ -13,7 +13,7 @@ public class DriverOptions implements Salesforce{
 
 	public Pattern pattern() {
 		// TODO Auto-generated method stub
-		return new ElementObject(driver);
+		return new ObjectDriver(driver);
 	}
 
 	public Traverse traverse() {

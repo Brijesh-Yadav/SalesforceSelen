@@ -1,5 +1,5 @@
 package com.salesforceselen.objectprocess;
 
-public class ButtonProcess {
+public class SelectProcess {
 
 }
