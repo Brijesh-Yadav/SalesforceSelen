@@ -3,9 +3,15 @@ package com.salesforceselen.selenium;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 
 public class SeleniumActions implements Selenium{
 	
@@ -14,32 +20,46 @@ public class SeleniumActions implements Selenium{
 	public SeleniumActions(WebDriver driver){
 		this.driver = driver;
 	}
-	
+
+	@Override
 	public List<WebElement> returnWebelements(String xpathObj) {
 		List<WebElement> elements = driver.findElements(By.xpath(xpathObj));
 		return elements;
 	}
 
+	@Override
 	public boolean isClickable(WebElement element) {
-		if(element.isDisplayed()==true && element.isEnabled()==true){
+		if(element.isDisplayed() && element.isEnabled()){
 			return true;
 		}
 		return false;
 	}
 
+	@Override
 	public boolean isElementPresent(WebElement element) {
-		// TODO Auto-generated method stub
+		if(element.isDisplayed()){
+			return true;
+		}
 		return false;
 	}
 
 	public boolean isElementPresent(List<WebElement> element) {
-		// TODO Auto-generated method stub
+		if(element.size()>0){
+			return true;
+		}
 		return false;
 	}
 
 	public void js_click(WebElement element) {
-		// TODO Auto-generated method stub
-		
+		try {
+			JavascriptExecutor jsobj = (JavascriptExecutor) driver;
+			jsobj.executeScript("arguments[0].click();", element);
+			System.out.println("clicked on element using javascript");
+		} catch (Exception e) {
+			System.out.println("__js_click error occured... " + e.getMessage());
+			element.sendKeys(Keys.ENTER);
+			System.out.println("Pressed entered.. keyoboard button");
+		}
 	}
 
 	public void js_enter(WebElement element, String text) {
@@ -88,8 +108,15 @@ public class SeleniumActions implements Selenium{
 	}
 
 	public void static_wait(int time) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("total wait time "+time+" sec");
+		try{
+			for(int i=0; i<=time; i++){
+				System.out.println("waiting.."+i+" sec");
+				Thread.sleep(1000);
+			}
+		}catch(Exception e){
+			System.out.println("__staticWait - ignore messages ");
+		}
 	}
 
 	public void switchBackToDefault() {
@@ -138,11 +165,29 @@ public class SeleniumActions implements Selenium{
 	}
 
 	public void click(WebElement element) {
-		// TODO Auto-generated method stub
-		
+		try{
+			element.click();
+		}catch(JavascriptException e){
+			System.out.println("under JavascriptException __click ");
+			js_click(element);
+		}catch(ElementClickInterceptedException e){
+			System.out.println("under ElementClickInterceptedException __click ");
+			try{
+				action_builder_click(element);
+			}catch(Exception f){
+				System.out.println("under Exception __click ");
+				js_click(element);
+			}
+		}catch(ElementNotInteractableException e){
+			System.out.println("under ElementNotInteractableException __click ");
+			js_click(element);
+		}catch(StaleElementReferenceException e){
+			System.out.println("under StaleElementReferenceException __click ");
+			js_click(element);
+		}
 	}
 
-	public void js_waittooadpage(int time) {
+	public void js_waitToLoadpage(int time) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -176,14 +221,64 @@ public class SeleniumActions implements Selenium{
 		return attribute;
 	}
 
+	@Override
 	public String getInnerText(WebElement element) {
 		String attribute = element.getAttribute("innerText");
 		return attribute;
 	}
 
+	@Override
 	public void mouse_hover(WebElement element) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void action_builder_click(WebElement element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void js_scroll_down(int num) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void js_scroll_up(int num) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void js_scroll_to_element_view(WebElement element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void js_scroll_to_bottom() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Action move_to_element(WebElement element) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void enter(WebElement element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getText(WebElement element) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
