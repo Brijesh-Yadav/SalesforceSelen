@@ -1,8 +1,9 @@
 package com.salesforceselen.core;
 
 import org.openqa.selenium.WebDriver;
-import com.salesforceselen.datetime.DatetimeUtils;
+
 import com.salesforceselen.excel.Excel;
+import com.salesforceselen.helpers.DatetimeInterface;
 import com.salesforceselen.selenium.Selenium;
 import com.salesforceselen.selenium.SeleniumActions;
 
@@ -25,7 +26,7 @@ public class DriverInit implements  SalesforceDriver{
 		return new SeleniumActions(w_driver);
 	}
 
-	public DatetimeUtils date() {
+	public DatetimeInterface date() {
 		return null;
 	}
 

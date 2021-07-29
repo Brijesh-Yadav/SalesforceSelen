@@ -12,6 +12,8 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
+import com.salesforceselen.helpers.DateTime_;
+import com.salesforceselen.helpers.Number_;
 
 public class SeleniumActions implements Selenium{
 	
@@ -280,5 +282,22 @@ public class SeleniumActions implements Selenium{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void click_all_element(List<WebElement> element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public DateTime_ dateTime(){
+		return new DateTime_();
+	}
+	
+	@Override
+	public Number_ number(){
+		return new Number_();
+	}
+
 
 }

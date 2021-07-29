@@ -8,6 +8,7 @@ import com.salesforceselen.core.Obj;
 import com.salesforceselen.core.ObjectDriver;
 import com.salesforceselen.core.SalesforceDriver;
 import com.salesforceselen.core.SalesforceLex;
+import com.salesforceselen.selenium.SeleniumActions;
 
 public class ExecutionDesign {
 	
@@ -23,10 +24,9 @@ public class ExecutionDesign {
 		SalesforceDriver ddriver = new SalesforceLex(driver);
 		SalesforceLex sdriver = new SalesforceLex(driver);
 		
+		ddriver.selenium().dateTime().getCurrentDateTime();
 		sdriver.salesforce().pattern().getObj(Obj.button("Login")).click();
-		
 		sdriver.salesforce().pattern().getObj(Obj.textfield("Username")).enter("test123");
-		
 		sdriver.salesforce().pattern().getObj(Obj.dropdown("Login")).select("text");
 		sdriver.salesforce().pattern().getObj(Obj.textfield("account name")).enter("test123");
 		sdriver.salesforce().pattern().getObj(Obj.lightning_dropdown_click("")).select("");

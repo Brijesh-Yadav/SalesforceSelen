@@ -1,7 +1,7 @@
 package com.salesforceselen.core;
 
-import com.salesforceselen.datetime.DatetimeUtils;
 import com.salesforceselen.excel.Excel;
+import com.salesforceselen.helpers.DatetimeInterface;
 import com.salesforceselen.selenium.Selenium;
 
 public interface SalesforceDriver {
@@ -10,7 +10,7 @@ public interface SalesforceDriver {
 	
 	Selenium selenium();
 	
-	DatetimeUtils date();
+	DatetimeInterface date();
 	
 	Excel excel();
 
