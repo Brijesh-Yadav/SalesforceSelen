@@ -14,7 +14,7 @@ public interface Selenium extends SeleniumJavaScript, SeleniumMouseEvent,Seleniu
 	
 	public void click(WebElement element);
 
-	public void click_all_element(List<WebElement> element);
+	public void click_all_element(List<WebElement> elements);
 	
 	public WebElement returnWebElement(String xpathObj);
 	
@@ -32,7 +32,7 @@ public interface Selenium extends SeleniumJavaScript, SeleniumMouseEvent,Seleniu
 	
 	public boolean containsAttribute(WebElement element, String [] att);
 	
-	public void enter(WebElement element);
+	public void enter(WebElement element, String text);
 	
 	public DateTime_ dateTime();
 	

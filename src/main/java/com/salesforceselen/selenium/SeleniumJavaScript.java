@@ -16,7 +16,7 @@ public interface SeleniumJavaScript {
 	
 	public void js_setAttribute(WebElement element,String attName, String attValue);
 	
-	public void js_waitToLoadpage(int time);
+	public void js_wait_to_load_HTML_Page(int time);
 	
 	public void js_scroll_down(int num);
 	

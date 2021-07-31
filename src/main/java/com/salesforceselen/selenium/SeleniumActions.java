@@ -9,6 +9,7 @@ import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.ElementNotInteractableException;
+import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -256,8 +257,9 @@ public class SeleniumActions implements Selenium{
 	}
 
 	public void waitForElementClickable(WebElement element, int time) {
-		// TODO Auto-generated method stub
-		
+		WebDriverWait wait  = new WebDriverWait(driver, time);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		System.out.println("element is present now.");
 	}
 
 	public WebElement returnWebElement(String xpathObj) {
@@ -293,9 +295,27 @@ public class SeleniumActions implements Selenium{
 		}
 	}
 
-	public void js_waitToLoadpage(int time) {
-		// TODO Auto-generated method stub
-		
+	public void js_wait_to_load_HTML_Page(int time) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.onload");
+		// Initially bellow given if condition will check ready state of page.
+		if (js.executeScript("return document.readyState").toString().equals("complete")) {
+			System.out.println("Page Is loaded..");
+			return;
+		}
+		//wait for given time to load html page
+		for (int i = 0; i < time; i++) {
+			try {
+				Thread.sleep(1000);
+				System.out.println("wait.. for page to load.. "+i+" sec.. with dom load check..");
+			} catch (InterruptedException e) {
+			}
+			// To check page ready state.
+			if (js.executeScript("return document.readyState").toString().equals("complete")) {
+				System.out.println("Page Is loaded.");
+				break;
+			}
+		}
 	}
 
 	public void selectWindow(WebElement element) {
@@ -341,56 +361,84 @@ public class SeleniumActions implements Selenium{
 
 	@Override
 	public void action_builder_click(WebElement element) {
-		// TODO Auto-generated method stub
-		
+		Actions action = new Actions(driver);
+		action.moveToElement(element).click().perform();
 	}
 
 	@Override
 	public void js_scroll_down(int num) {
-		// TODO Auto-generated method stub
-		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// This  will scroll down the page by  1000 pixel vertical		
+        js.executeScript("window.scrollBy(0,"+num+")");
+        static_wait(3);
 	}
 
 	@Override
 	public void js_scroll_up(int num) {
-		// TODO Auto-generated method stub
-		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// This  will scroll up the page by  1000 pixel vertical		
+        js.executeScript("window.scrollBy("+num+",0)");
 	}
 
 	@Override
 	public void js_scroll_to_element_view(WebElement element) {
-		// TODO Auto-generated method stub
-		
+    	JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
 	@Override
 	public void js_scroll_to_bottom() {
-		// TODO Auto-generated method stub
-		
+		long ht = 300L;
+		for (long i = 0; i <= 10; i++) {
+			((JavascriptExecutor) driver).executeScript("window.scrollBy(0, " + ht + ")", "");
+			ht = ht + 300;
+			static_wait(1);
+		}
 	}
 
 	@Override
-	public Action move_to_element(WebElement element) {
-		// TODO Auto-generated method stub
-		return null;
+	public Actions move_to_element(WebElement element) {
+		Actions builder = new Actions(driver);
+        builder.moveToElement(element).build().perform();
+		return builder;
 	}
 
 	@Override
-	public void enter(WebElement element) {
-		// TODO Auto-generated method stub
-		
+	public void enter(WebElement element,String text) {
+		try{
+			element.clear();
+			element.sendKeys(text);
+			System.out.println(text+ " text is entered");
+		}catch(ElementClickInterceptedException e){
+			System.out.println("ElementClickInterceptedException occured.. enter exception handled.. with click ");
+			click(element);
+			element.clear();
+			element.sendKeys(text);
+			System.out.println(text+ " text is entered");
+		}catch(InvalidElementStateException e){
+			System.out.println("InvalidElementStateException occured.. enter exception handled.. with click ");
+			click(element);
+			element.clear();
+			element.sendKeys(text);
+			System.out.println(text+ " text is entered");
+		}
 	}
 
 	@Override
 	public String getText(WebElement element) {
-		// TODO Auto-generated method stub
-		return null;
+		String text = element.getText();
+		return text;
 	}
 
 	@Override
-	public void click_all_element(List<WebElement> element) {
-		// TODO Auto-generated method stub
-		
+	public void click_all_element(List<WebElement> elements) {
+		System.out.println("element size "+elements.size());
+		for(int i=0; i<elements.size(); i++){
+			WebElement element = elements.get(i);
+			click(element);
+			System.out.println("clicked on index "+i+" object");
+			static_wait(3);
+		}
 	}
 
 	@Override
@@ -401,6 +449,12 @@ public class SeleniumActions implements Selenium{
 	@Override
 	public Number_ number(){
 		return new Number_();
+	}
+
+	@Override
+	public void drag_and_drop(WebElement source, WebElement target) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

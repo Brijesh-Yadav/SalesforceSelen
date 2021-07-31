@@ -49,8 +49,8 @@ public class ActionEvent implements Action{
 			ClickProcess cp = new ClickProcess(driver);
 			cp.performClick(objlist, obj_mame,obj_index);
 		}else{
-			throw new AppropriateActionNotSelected("Approviate actioin is not selected.. "
-					+ "please select correct action type for your object type"+objtype+"");
+			throw new AppropriateActionNotSelected("please select correct action type "
+					+ "for your object type"+objtype+"");
 		}
 	}
 
@@ -60,8 +60,13 @@ public class ActionEvent implements Action{
 	}
 
 	public void enter(String text) {
-		// TODO Auto-generated method stub
-		
+		if(enterActionCheck()){
+			System.out.println("obj name "+obj_mame+" index "+obj_index);
+			ClickProcess cp = new ClickProcess(driver);
+			cp.performClick(objlist, obj_mame,obj_index);
+		}else{
+			throw new AppropriateActionNotSelected("please select correct action type for your object type "+objtype+"");
+		}
 	}
 
 	public void getElement() {
@@ -87,5 +92,11 @@ public class ActionEvent implements Action{
 		String [] array = {"button","textfield","radiobox","checkbox","link","image"};
 		return arryContains(array, objtype);
 	}
+
+	private boolean enterActionCheck(){
+		String [] array = {"textfield"};
+		return arryContains(array, objtype);
+	}
+
 	
 }

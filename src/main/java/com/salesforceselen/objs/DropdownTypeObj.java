@@ -1,5 +1,5 @@
 package com.salesforceselen.objs;
 
-public class DropdownTypeObj extends DropdownObj{
+public class DropdownTypeObj {
 
 }

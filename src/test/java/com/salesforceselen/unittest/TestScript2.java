@@ -21,12 +21,9 @@ public class TestScript2 {
 		//initialize Salesforce driver
 		SalesforceDriver sdriver = new SalesforceLex(driver);
 		ObjectDriver newdriver = sdriver.salesforce().pattern().getObjectDriver();
-		newdriver.getObj(Obj.button("Login")).click();
-		
+		newdriver.getObj(Obj.button("Login")).enter("");
 //		String [] arr = {"col a","col b"};
 //		sdriver.salesforce().pattern().getObj(Obj.table("abcdetf").getCell(arr,"Object")).click();	
-
-		
 	}
 
 }
