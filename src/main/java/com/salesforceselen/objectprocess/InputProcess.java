@@ -7,10 +7,11 @@ import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SelectProcess extends ElementCheckProcess{
+public class InputProcess extends ElementCheckProcess{
 
-	public SelectProcess(WebDriver driver) {
+	public InputProcess(WebDriver driver) {
 		super(driver);
+		// TODO Auto-generated constructor stub
 	}
 	
 	public void performInput(ArrayList<String> obj_list, String text,int obj_index,String value){
@@ -66,6 +67,5 @@ public class SelectProcess extends ElementCheckProcess{
 			}catch(Exception e){}
 		}
 	}
-
 
 }

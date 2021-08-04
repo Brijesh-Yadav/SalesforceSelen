@@ -275,6 +275,7 @@ public class SeleniumActions implements Selenium{
 	public void click(WebElement element) {
 		try{
 			element.click();
+			System.out.println("clicked on element..");
 		}catch(JavascriptException e){
 			System.out.println("under JavascriptException __click ");
 			js_click(element);

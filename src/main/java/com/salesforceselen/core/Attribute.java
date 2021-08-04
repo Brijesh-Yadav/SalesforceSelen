@@ -17,5 +17,9 @@ public class Attribute {
 		return att;
 	}
 
+	public static String placeholder(String placeholder){
+		String att = "class=\""+placeholder+"\"";
+		return att;
+	}
 	
 }

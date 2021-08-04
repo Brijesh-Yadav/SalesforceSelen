@@ -2,9 +2,9 @@ package com.salesforceselen.core;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-
 import com.salesforce.sftable.TableAction;
-import com.salesforceselen.lexrepo.ButtonRepo;
+import com.salesforceselen.lexrepo.LexButtonRepo;
+import com.salesforceselen.lexrepo.LexTextFieldRepo;
 
 /**
  * @author brijesh-Yadav
@@ -12,6 +12,8 @@ import com.salesforceselen.lexrepo.ButtonRepo;
  * Button,Checkbox,Dropdown,DropdownType,Iframe,Image,LightningDropdownClick,LightningDropdownKeys,
  * LightningDropdownType,Link,MultipleDropdown,Radiobox,RichTextEditor,Table,Textarea,Textfield
  * TextfieldValue,Text
+ * @methodType
+ * action("text"),action("text",obj_index),action("text",obj_index,pattern_index),action("text",[]array_attribute),
  */
 public interface Obj {
 
@@ -26,31 +28,31 @@ public interface Obj {
 	 */
 	public static ObjContainer button(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer button(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, objindex);
+		button_objs = LexButtonRepo.pattern(object_name, objindex,0);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 	
 	public static ObjContainer button(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer button(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, objindex);
+		button_objs = LexButtonRepo.pattern(object_name, objindex,pat_index);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
 	public static ObjContainer button(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, objindex);
+		button_objs = LexButtonRepo.pattern(object_name, objindex,pat_index);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
@@ -65,31 +67,31 @@ public interface Obj {
 	 */
 	public static ObjContainer checkbox(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 	
 	public static ObjContainer checkbox(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer checkbox(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, objindex);
+		button_objs = LexButtonRepo.pattern(object_name, objindex,0);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
 	public static ObjContainer checkbox(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
 	public static ObjContainer checkbox(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
@@ -104,31 +106,31 @@ public interface Obj {
 	 */
 	public static ObjContainer dropdown(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 	
 	public static ObjContainer dropdown(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer dropdown(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
 	public static ObjContainer dropdown(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
 	public static ObjContainer dropdown(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,objindex);
 	}
 
@@ -156,31 +158,31 @@ public interface Obj {
 	
 	public static ObjContainer iframe(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 	
 	public static ObjContainer iframe(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 
 	public static ObjContainer iframe(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 
 	public static ObjContainer iframe(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 	
 	public static ObjContainer iframe(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 
@@ -196,31 +198,31 @@ public interface Obj {
 	
 	public static ObjContainer image(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 	
 	public static ObjContainer image(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 
 	public static ObjContainer image(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 
 	public static ObjContainer image(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 
 	public static ObjContainer image(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name);
 	}
 
@@ -339,31 +341,31 @@ public interface Obj {
 	 */
 	public static ObjContainer link(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 	
 	public static ObjContainer link(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer link(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer link(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer link(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
@@ -379,31 +381,31 @@ public interface Obj {
 
 	public static ObjContainer multiple_dropdown(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 	
 	public static ObjContainer multiple_dropdown(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer multiple_dropdown(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer multiple_dropdown(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer multiple_dropdown(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
@@ -420,31 +422,31 @@ public interface Obj {
 
 	public static ObjContainer radiobox(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 	
 	public static ObjContainer radiobox(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer radiobox(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer radiobox(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer radiobox(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
@@ -470,7 +472,7 @@ public interface Obj {
 	 */
 	public static TableAction table(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new TableAction(button_objs);
 	}
 
@@ -485,31 +487,31 @@ public interface Obj {
 	 */
 	public static ObjContainer textarea(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 	
 	public static ObjContainer textarea(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer textarea(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer textarea(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer textarea(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
@@ -524,33 +526,33 @@ public interface Obj {
 	 */
 
 	public static ObjContainer textfield(String object_name){
-		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
-		return new ObjContainer(button_objs,"button",object_name,1);
+		ArrayList<String> textfield_objs = new ArrayList<String>();
+		textfield_objs = LexTextFieldRepo.pattern(object_name, 1,0);
+		return new ObjContainer(textfield_objs,"textfield",object_name,1);
 	}
 	
 	public static ObjContainer textfield(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
-		return new ObjContainer(button_objs,"button",object_name,1);
+		button_objs = LexTextFieldRepo.pattern(object_name, 1,0);
+		return new ObjContainer(button_objs,"textfield",object_name,1);
 	}
 
 	public static ObjContainer textfield(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
-		return new ObjContainer(button_objs,"button",object_name,1);
+		button_objs = LexTextFieldRepo.pattern(object_name, 1,0);
+		return new ObjContainer(button_objs,"textfield",object_name,1);
 	}
 
 	public static ObjContainer textfield(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
-		return new ObjContainer(button_objs,"button",object_name,1);
+		button_objs = LexTextFieldRepo.pattern(object_name, 1,0);
+		return new ObjContainer(button_objs,"textfield",object_name,1);
 	}
 
 	public static ObjContainer textfield(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
-		return new ObjContainer(button_objs,"button",object_name,1);
+		button_objs = LexTextFieldRepo.pattern(object_name, 1,0);
+		return new ObjContainer(button_objs,"textfield",object_name,1);
 	}
 
 	/**
@@ -574,31 +576,31 @@ public interface Obj {
 	 */
 	public static ObjContainer text(String object_name,int objindex,int pat_index, String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer text(String object_name){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 	
 	public static ObjContainer text(String object_name,String [] attribute){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer text(String object_name,int objindex){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 
 	public static ObjContainer text(String object_name,int objindex,int pat_index){
 		ArrayList<String> button_objs = new ArrayList<String>();
-		button_objs = ButtonRepo.button_repo(object_name, 1);
+		button_objs = LexButtonRepo.pattern(object_name, 1,0);
 		return new ObjContainer(button_objs,"button",object_name,1);
 	}
 

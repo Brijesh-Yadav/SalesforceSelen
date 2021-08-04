@@ -48,7 +48,6 @@ public class ObjectDriver implements Pattern{
 	}
 
 	public ObjectDriver getObjectDriver() {
-		// TODO Auto-generated method stub
 		return new ObjectDriver(driver);
 	}
 	
