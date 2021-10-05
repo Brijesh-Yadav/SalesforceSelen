@@ -29,7 +29,7 @@ public class ElementCheckProcess extends SeleniumActions{
 			List<WebElement> list = returnWebelements(xpathobj);
 			if(list.size()>0){
 				result = 1;
-				System.out.println(xpathobj+" element is present!! "+obj_index);
+				System.out.println(xpathobj+" element is present!! and index value is "+obj_index);
 				obj_list.add(xpathobj);
 			}
 			obj_index++;
@@ -63,25 +63,30 @@ public class ElementCheckProcess extends SeleniumActions{
 		}
 	}
 
-	public LinkedHashMap<String,String>process_object_evaluation_2_with_attribute(ArrayList<String> arraylist, String text){
-		LinkedHashMap<String,String> mapobj = new LinkedHashMap<String,String>();
-		for(int i=0; i<arraylist.size(); i++){
-			String xpath_obj = arraylist.get(i);
+	public LinkedHashMap<String,String>process_object_evaluation_with_containsAttribute(LinkedHashMap<String,String> mapobj, String text){
+		LinkedHashMap<String,String> mapobj2 = new LinkedHashMap<String,String>();
+		for (Map.Entry<String, String> entry : mapobj.entrySet()) {
+			String xpath = entry.getKey();
+			String cond = entry.getValue();
 			try{
-				WebElement element = returnWebElement(xpath_obj);
+				WebElement element = returnWebElement(xpath);
 				boolean result  = containsAttribute(element, text);
-				System.out.println("Element contains attribute state :: "+result);
-				if(result){
-					System.out.println("Element contains attribute and its added in object list.. "+xpath_obj);
-					mapobj.put(xpath_obj, "True");
+				System.out.println("Element att state :: "+result);
+				if(result==true){
+					System.out.println("attribute is found and its added in object list.. "+xpath);
+					mapobj2.put(xpath+","+cond, "True");
 				}else{
-					mapobj.put(xpath_obj, "False");
+					mapobj2.put(xpath+","+cond, "False");
 				}
 			}catch(TimeoutException et){
-				mapobj.put(xpath_obj, "False");
+				mapobj2.put(xpath+","+cond, "False");
 			}
 		}
-		return mapobj;
+		if(mapobj2.size()>1){
+			System.out.println("Multiple html structure are present on page for same object.. "
+					+ "function may not work... please specify specific index");
+		}
+		return mapobj2;
 	}
 
 	public LinkedHashMap<String,String>process_object_evaluation_with_containsAttribute(ArrayList<String> arraylist,String text){
@@ -92,7 +97,7 @@ public class ElementCheckProcess extends SeleniumActions{
 				WebElement element = returnWebElement(xpath_obj);
 				boolean result  = containsAttribute(element, text);
 				System.out.println("Element att state :: "+result);
-				if(result==true){
+				if(result){
 					System.out.println("attribute is found and its added in object list.. "+xpath_obj);
 					mapobj.put(xpath_obj, "True");
 				}else{
@@ -117,12 +122,12 @@ public class ElementCheckProcess extends SeleniumActions{
 					System.out.println("Element clickable state :: "+result);
 					if(result){
 						System.out.println("Element is clickable and its added in object list.. "+xpath);
-						mapobj.put(xpath, "True");
+						mapobj.put(xpath+","+cond, "True");
 					}else{
-						mapobj.put(xpath, "False");
+						mapobj.put(xpath+","+cond, "False");
 					}
 				}catch(TimeoutException et){
-					mapobj.put(xpath, "False");
+					mapobj.put(xpath+","+cond, "False");
 				}
 			}
 		}
@@ -133,5 +138,9 @@ public class ElementCheckProcess extends SeleniumActions{
 		return mapobj;
 	}
 
-	
+	public String getFilteredXpathObj(String key){
+		String xpathobj = key.contains("False")? key.replace(",False", ""):key.replace(",True", "");
+		return xpathobj;
+	}
+
 }

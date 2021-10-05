@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
 
 import com.salesforceselen.core.SetGetConfig;
 
-public class LexButtonRepo extends CommonRepoFun{
+public class LexLinkPattern extends CommonRepoFun{
 	
 	public static ArrayList<String> pattern(String object_name, int index, int patternIndex){
 		System.out.println("version "+SetGetConfig.sfversion);
@@ -18,6 +18,5 @@ public class LexButtonRepo extends CommonRepoFun{
 		ArrayList<String> arrlist = gtObjectlist(obj_list, patternIndex);
 		return arrlist;
 	}
-	
 
 }

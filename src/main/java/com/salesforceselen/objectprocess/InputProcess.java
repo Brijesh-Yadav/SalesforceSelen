@@ -11,17 +11,21 @@ public class InputProcess extends ElementCheckProcess{
 
 	public InputProcess(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void performInput(ArrayList<String> obj_list, String text,int obj_index,String value){
 		LinkedHashMap<String,String> obj_list_att = process_object_evaluation_with_containsAttribute(obj_list, text);
 		LinkedHashMap<String,String> mapobj = process_object_evaluation_with_clickable(obj_list_att,"True");
-		int check = execute_with_true_false_condition(mapobj,"True",obj_index,value);
-		if(check!=1){
-			execute_with_true_false_condition(mapobj,"False",obj_index,value);
-			LinkedHashMap<String,String> mapobj2 = process_object_evaluation_with_clickable(mapobj,"False");
-			int check2 = execute_with_true_false_condition(mapobj2,"True",obj_index,value);
+		System.out.println("mapobj "+mapobj.size());
+		if(mapobj.size()>0){
+			int check = execute_with_true_false_condition(mapobj,"True",obj_index,value);
+			if(check!=1){
+				execute_with_true_false_condition(mapobj,"False",obj_index,value);
+			}
+		}else{
+			LinkedHashMap<String,String> mapobj_false = process_object_evaluation_with_clickable(obj_list_att,"False");
+			System.out.println("mapobj false "+mapobj_false.size());
+			int check2 = execute_with_true_false_condition(mapobj_false,"True",obj_index,value);
 			if(check2!=1){
 				execute_with_true_false_condition(mapobj,"False",obj_index,value);
 			}
@@ -32,8 +36,9 @@ public class InputProcess extends ElementCheckProcess{
 		int check = 0;
 		for (Map.Entry<String, String> entry : mappedObj.entrySet()) {
 			check =1;
-			String key = entry.getKey();
+			String key = getFilteredXpathObj(entry.getKey());
 			String value = entry.getValue();
+			System.out.println("key "+key);
 			if(value.equalsIgnoreCase(mapcond)){
 				List<WebElement> elements = returnWebelements(key);
 				if(elements.size()>1){

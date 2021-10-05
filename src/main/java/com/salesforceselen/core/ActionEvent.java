@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import com.salesforce.exception.AppropriateActionNotSelected;
 import com.salesforceselen.objectprocess.ClickProcess;
 import com.salesforceselen.objectprocess.InputProcess;
+import com.salesforceselen.objectprocess.SelectProcess;
 
 public class ActionEvent implements Action{
 	
@@ -60,8 +61,7 @@ public class ActionEvent implements Action{
 	public SelectOptions select(String text) {
 		if(selectActionCheck()){
 			System.out.println("obj name "+obj_mame+" index "+obj_index);
-			ClickProcess cp = new ClickProcess(driver);
-			cp.performClick(objlist, obj_mame,obj_index);
+			select_dropdown(objtype, text);
 		}else{
 			throw new AppropriateActionNotSelected("please select correct action type "
 					+ "for your action"+objtype+"");
@@ -95,18 +95,40 @@ public class ActionEvent implements Action{
 	}
 	
 	private boolean clickActionCheck(){
-		String [] array = {"button","textfield","radiobox","checkbox","link","image"};
+		String [] array = {ObjNameEnum.BUTTON.toString(),ObjNameEnum.TEXTFIELD.toString(),ObjNameEnum.CHECKBOX.toString(),
+				ObjNameEnum.LINK.toString(),ObjNameEnum.IMAGE.toString()};
 		return arryContains(array, objtype);
 	}
 
 	private boolean enterActionCheck(){
-		String [] array = {"textfield"};
+		String [] array = {ObjNameEnum.TEXTFIELD.toString(),ObjNameEnum.TEXTAREA.toString()};
 		return arryContains(array, objtype);
 	}
 
 	private boolean selectActionCheck(){
-		String [] array = {"dropdown"};
+		String [] array = {"DROPDOWN"};
 		return arryContains(array, objtype);
 	}
 	
+	public void select_dropdown(String obj_type, String value){
+		SelectProcess sp = new SelectProcess(driver);
+		switch(obj_type){
+		case "DROPDOWN":
+			System.out.println("dropdown ");
+			sp.selectDropdown(objlist, obj_mame,obj_index, value);
+		case "DROPDOWN_TYPE":
+			System.out.println("dropdown type");
+			sp.selectDropdown_type(hashmpaoj, obj_mame,obj_index, value);
+		case "DROPDOWN_CLICK":
+			System.out.println("dropdown click");
+			sp.selectDropdown_click(hashmpaoj, obj_mame,obj_index, value);
+		case "DROPDOWN_KEYS":
+			System.out.println("dropdown keys");
+			sp.selectDropdown_keys(hashmpaoj, obj_mame,obj_index, value);
+		case "DROPDOWN_MULTIPLE":
+			System.out.println("multiple dropddown");
+			sp.select_multipleDropdown(objlist, obj_mame,obj_index, value);
+		}
+	}
+
 }

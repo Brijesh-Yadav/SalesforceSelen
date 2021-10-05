@@ -21,7 +21,7 @@ public class ClickProcess extends ElementCheckProcess{
 		int check = 0;
 		for (Map.Entry<String, String> entry : mappedObj.entrySet()) {
 			check =1;
-			String key = entry.getKey();
+			String key = getFilteredXpathObj(entry.getKey());
 			String value = entry.getValue();
 			if(value.equalsIgnoreCase(mapcond)){
 				List<WebElement> elements = driver.findElements(By.xpath(key));

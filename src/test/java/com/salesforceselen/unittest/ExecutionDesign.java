@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.salesforceselen.core.Attribute;
 import com.salesforceselen.core.Obj;
+import com.salesforceselen.core.ObjContainer;
 import com.salesforceselen.core.ObjectDriver;
 import com.salesforceselen.core.SalesforceDriver;
 import com.salesforceselen.core.SalesforceLex;
@@ -55,12 +56,16 @@ public class ExecutionDesign {
 		sdriver.salesforce().pattern().getObj(Obj.button("Login")).getElement();
 		sdriver.salesforce().pattern().getObj(Obj.table("").getCell(1, 2)).enter("");
 		
-		String [] attribute = {Attribute.id("Login"),Attribute.Class("login")};
+		String [] attribute = {Attribute.Label.id("Login"),Attribute.Label.Class("login")};
 		sdriver.salesforce().pattern().getObj(Obj.button("Login", attribute)).click();
 		ObjectDriver ob = sdriver.salesforce().pattern().getObjectDriver();
 		ob.getObj(Obj.button("Login")).click();
 		ob.getObj(Obj.dropdown("account",  attribute)).select("Market");
 		ob.getObj(Obj.dropdown("account",  attribute)).select("Market").isSelected();
+		
+		
+		sdriver.salesforce().pattern().getObj(Obj.lightning_dropdown_click("")).select("");
+		
 		
 	}
 }
